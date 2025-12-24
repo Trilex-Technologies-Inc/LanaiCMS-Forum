@@ -2,6 +2,9 @@
 if (!eregi("module.php", $_SERVER['PHP_SELF'])) {
     die("You can't access this file directly...");
 }
+if ((empty($_SESSION['uid'])) || ($_SESSION['uid'] < 0)){
+$sys_lanai->go2Page("module.php?modname=member&mf=memloginform");
+}
 
 $module_name = basename(dirname(__FILE__));
 $modfunction = "modules/$module_name/module.php";
@@ -46,7 +49,7 @@ $forum = new Forum();
                             <?= _CANCEL; ?>
                         </a>
                     </div>
-                     <?php if ((!empty($_SESSION['uid'])) && ($_SESSION['uid'] > 0)): ?>
+                    
                     <form id="postForm" name="post" method="POST" action="<?= $_SERVER['PHP_SELF']; ?>">
                         <input type="hidden" name="modname" value="<?= $module_name; ?>" />
                         <input type="hidden" name="mf" value="edit" />
@@ -82,7 +85,7 @@ $forum = new Forum();
                             </div>
                         </div>
                     </form>
-                     <?php endif; ?>
+                    
                 </div>
             </div>
         </div>

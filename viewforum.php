@@ -19,13 +19,13 @@
 <?=$rssubgroup->fields['fctTitle']; ?>
 </span><br/><br/>
 
- <?php if ((!empty($_SESSION['uid'])) && ($_SESSION['uid'] > 0)): ?>
+ 
  <?=_FORUM_GROUP_INSTRUCTION; ?><br/><br/>
 <img src="theme/<?=$cfg['theme']; ?>/images/new.gif" border="0" align="absmiddle"/>
 <a href="<?=$_SERVER['PHP_SELF']?>?modname=<?=$module_name?>&mf=post&fgid=<?=$_REQUEST['fgid']; ?>" >
 
 <?=_POST; ?></a>&nbsp;&nbsp;
- <?php endif ?>
+
 <img src="theme/<?=$cfg['theme']; ?>/images/back.gif" border="0" align="absmiddle"/>
 <a href="<?=$_SERVER['PHP_SELF']?>?modname=<?=$module_name?>" >
 <?=_BACK; ?></a>&nbsp;&nbsp;<br/><br/>
